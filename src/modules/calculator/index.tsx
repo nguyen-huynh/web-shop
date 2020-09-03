@@ -47,7 +47,16 @@ function mapDispatchToProps(dispatch: Dispatch) {
         actions: bindActionCreators(actions, dispatch)
     };
 }
-export default connect(
+
+const ConnectedCalculator = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Calculator);
+
+export default ConnectedCalculator;
+
+export const CalculatorRouter = {
+    path: 'calculator',
+    element: <ConnectedCalculator />,
+    children: []
+}
